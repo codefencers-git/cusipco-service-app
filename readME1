@@ -1,0 +1,45 @@
+ 
+
+[√] Flutter (Channel stable, 3.0.5, on Microsoft Windows [Version 10.0.22621.521], locale en-IN)
+    • Flutter version 3.0.5 at C:\Users\Asus\fvm\versions\3.0.2
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision f1875d570e (3 months ago), 2022-07-13 11:24:16 -0700
+    • Engine revision e85ea0e79c
+    • Dart version 2.17.6
+    • DevTools version 2.12.2
+
+[√] Android toolchain - develop for Android devices (Android SDK version 32.0.0)
+    • Android SDK at C:\Users\Asus\AppData\Local\Android\sdk
+    • Platform android-33, build-tools 32.0.0
+    • Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 11.0.10+0-b96-7249189)
+    • All Android licenses accepted.
+
+[√] Chrome - develop for the web
+    • Chrome at C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+
+[√] Visual Studio - develop for Windows (Visual Studio Community 2022 17.1.1)
+    • Visual Studio at C:\Program Files\Microsoft Visual Studio\2022\Community
+    • Visual Studio Community 2022 version 17.1.32228.430
+    • Windows 10 SDK version 10.0.19041.0
+
+[√] Android Studio (version 2020.3)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 11.0.10+0-b96-7249189)
+
+[√] VS Code (version 1.72.1)
+    • VS Code at C:\Users\Asus\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.34.0
+
+[√] Connected device (4 available)
+    • CPH2119 (mobile)  • 192.168.1.4:5555 • android-arm64  • Android 12 (API 31)
+    • Windows (desktop) • windows          • windows-x64    • Microsoft Windows [Version 10.0.22621.521]
+    • Chrome (web)      • chrome           • web-javascript • Google Chrome 105.0.5195.127
+    • Edge (web)        • edge             • web-javascript • Microsoft Edge 106.0.1370.37
+
+[√] HTTP Host Availability
+    • All required HTTP hosts are available
