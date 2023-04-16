@@ -11,10 +11,10 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class HttpService {
   static const String API_BASE_URL_FOR_AUTH =
-      "http://admin.healuconsultancy.com/api/customer/";
+      "http://cusipco.codefencers.com/api/customer/";
 
   static const String API_BASE_URL =
-      "http://admin.healuconsultancy.com/api/management/";
+      "http://cusipco.codefencers.com/api/management/";
 
   static const String GOOGLE_API_KEY =
       "AIzaSyB07GK4in7QPDNP7W-0GWkUEcp6KtPB28A";
