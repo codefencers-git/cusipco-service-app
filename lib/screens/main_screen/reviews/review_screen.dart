@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_model.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_service.dart';
-import 'package:healu_doctor_app/services/main_navigaton_prowider_service.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_model.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_service.dart';
+import 'package:cusipco_doctor_app/services/main_navigaton_prowider_service.dart';
 
-import 'package:healu_doctor_app/widgets/appbar_widget.dart';
+import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

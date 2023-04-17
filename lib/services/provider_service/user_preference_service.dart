@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/global_variable_for_show_messge.dart';
-import 'package:healu_doctor_app/Global/navigation_service.dart';
-import 'package:healu_doctor_app/Global/routes.dart';
-import 'package:healu_doctor_app/models/user_model.dart';
-import 'package:healu_doctor_app/services/http_service.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
+import 'package:cusipco_doctor_app/Global/navigation_service.dart';
+import 'package:cusipco_doctor_app/Global/routes.dart';
+import 'package:cusipco_doctor_app/models/user_model.dart';
+import 'package:cusipco_doctor_app/services/http_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPrefService with ChangeNotifier {

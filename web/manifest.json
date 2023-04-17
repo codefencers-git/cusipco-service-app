@@ -1,6 +1,6 @@
 {
-    "name": "healu_doctor_app",
-    "short_name": "healu_doctor_app",
+    "name": "cusipco_doctor_app",
+    "short_name": "cusipco_doctor_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

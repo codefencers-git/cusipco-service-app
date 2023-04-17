@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/routes.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/authentication/login_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/earnings/earning_service.dart';
-import 'package:healu_doctor_app/screens/main_screen/main_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_service.dart';
-import 'package:healu_doctor_app/services/provider_service/dash_board_provider.dart';
-import 'package:healu_doctor_app/services/provider_service/firebase_token_update_service.dart';
-import 'package:healu_doctor_app/services/provider_service/general_info_service.dart';
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/Global/routes.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/authentication/login_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/earnings/earning_service.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/main_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/dash_board_provider.dart';
+import 'package:cusipco_doctor_app/services/provider_service/firebase_token_update_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/general_info_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
 
 import 'package:provider/provider.dart';
 

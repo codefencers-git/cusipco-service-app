@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/models/dashboard_model.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/home_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/today_appointments.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/models/dashboard_model.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/home_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/today_appointments.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class DashBoardCArd extends StatelessWidget {

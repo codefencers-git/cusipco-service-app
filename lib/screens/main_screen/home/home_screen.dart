@@ -1,17 +1,17 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/models/dashboard_model.dart';
-import 'package:healu_doctor_app/models/user_model.dart';
-import 'package:healu_doctor_app/notification_backGround/notifiction_listner.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_filter_screen.dart';
-import 'package:healu_doctor_app/services/provider_service/dash_board_provider.dart';
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
-import 'package:healu_doctor_app/widgets/appbar_widget.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
-import 'package:healu_doctor_app/widgets/dash_board_cart.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/models/dashboard_model.dart';
+import 'package:cusipco_doctor_app/models/user_model.dart';
+import 'package:cusipco_doctor_app/notification_backGround/notifiction_listner.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_filter_screen.dart';
+import 'package:cusipco_doctor_app/services/provider_service/dash_board_provider.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/widgets/dash_board_cart.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 import 'package:provider/provider.dart';
@@ -104,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: AppBarWithTextAndBackWidget(
                   isShowBack: false,
                   isShowRightIcon: true,
+                  chatOption: true,
                   onbackPress: () {},
                   title: "",
                 )),

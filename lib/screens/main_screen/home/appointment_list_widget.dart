@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/models/appointment_list_model.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
-import 'package:healu_doctor_app/services/provider_service/appointment_details_service.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/models/appointment_list_model.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
+import 'package:cusipco_doctor_app/services/provider_service/appointment_details_service.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class AppointmentListWidget extends StatefulWidget {

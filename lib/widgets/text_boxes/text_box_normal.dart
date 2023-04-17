@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
 
 class TextBoxSimpleWidget extends StatefulWidget {
   const TextBoxSimpleWidget(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_list_widget.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_list_widget.dart';
 
-import 'package:healu_doctor_app/widgets/appbar_widget.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
 
 class AppointmentFilterScreen extends StatefulWidget {
   AppointmentFilterScreen({

@@ -2,17 +2,17 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/global_variable_for_show_messge.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/main_screen/profile/profile_service.dart';
-import 'package:healu_doctor_app/services/main_navigaton_prowider_service.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/profile/profile_service.dart';
+import 'package:cusipco_doctor_app/services/main_navigaton_prowider_service.dart';
 
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
-import 'package:healu_doctor_app/widgets/appbar_widget.dart';
-import 'package:healu_doctor_app/widgets/button_widget/button_outLine.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
-import 'package:healu_doctor_app/widgets/text_boxes/text_box_with_sufix.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/button_outLine.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/widgets/text_boxes/text_box_with_sufix.dart';
 
 import 'package:image_picker/image_picker.dart';
 

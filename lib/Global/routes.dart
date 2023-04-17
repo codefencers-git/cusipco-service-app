@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:healu_doctor_app/screens/authentication/login_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/main_screen.dart';
-import 'package:healu_doctor_app/screens/splash_screen.dart';
+import 'package:cusipco_doctor_app/screens/authentication/login_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/main_screen.dart';
+import 'package:cusipco_doctor_app/screens/splash_screen.dart';
 
 class Routes {
   static const String mainRoute = "/main";

@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/global_variable_for_show_messge.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
 
-import 'package:healu_doctor_app/screens/main_screen/earnings/earning_model.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_model.dart';
-import 'package:healu_doctor_app/services/http_service.dart';
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/earnings/earning_model.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_model.dart';
+import 'package:cusipco_doctor_app/services/http_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
 
 class ReviewService with ChangeNotifier {
   List<ReviewData>? globalReviewData;

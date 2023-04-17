@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/notification_backGround/notification_service.dart';
-import 'package:healu_doctor_app/screens/main_screen/earnings/earnings_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/home_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/profile/profile_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/need_support_screen.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_screen.dart';
-import 'package:healu_doctor_app/services/main_navigaton_prowider_service.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/notification_backGround/notification_service.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/earnings/earnings_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/home_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/profile/profile_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/need_support_screen.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_screen.dart';
+import 'package:cusipco_doctor_app/services/main_navigaton_prowider_service.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';

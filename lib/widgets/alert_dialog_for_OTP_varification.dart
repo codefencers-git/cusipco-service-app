@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/global_variable_for_show_messge.dart';
+import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
 
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/models/appointment_detail_model.dart';
-import 'package:healu_doctor_app/services/provider_service/appointment_details_service.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/models/appointment_detail_model.dart';
+import 'package:cusipco_doctor_app/services/provider_service/appointment_details_service.dart';
 
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class AlertDialogForOTPVafication extends StatefulWidget {

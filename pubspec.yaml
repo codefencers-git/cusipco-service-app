@@ -53,6 +53,10 @@ dependencies:
   device_info_plus: ^4.1.2
   firebase_core_platform_interface: 4.5.1
   firebase_core: ^1.22.0
+  firebase_auth:
+  cloud_firestore:
+  firebase_storage:
+  equatable:
   firebase_messaging: ^13.0.2
   flutter_ringtone_player: ^3.2.0
   vibration: ^1.7.6

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
-import 'package:healu_doctor_app/Global/global_variable_for_show_messge.dart';
+import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
 import 'package:http_parser/http_parser.dart';
 
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';

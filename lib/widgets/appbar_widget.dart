@@ -1,6 +1,7 @@
+import 'package:cusipco_doctor_app/screens/main_screen/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/notification/notification_setting_screen.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/notification/notification_setting_screen.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
@@ -11,13 +12,15 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
       required this.title,
       this.isShowRightIcon = false,
       this.isShowBack = false,
-      this.isClickOnRightIcon = true,
+      this.chatOption = false,
+        this.isClickOnRightIcon = true,
       required this.onbackPress})
       : super(key: key);
   final bool isShowBack;
   final bool isShowRightIcon;
   final bool isClickOnRightIcon;
   final String title;
+  final bool? chatOption;
   final Function onbackPress;
 
   @override
@@ -52,6 +55,16 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
             ),
           ),
+          chatOption == true ? InkWell(
+              onTap: (){
+                pushNewScreen(
+                  context,
+                  screen: ChatScreen(),
+                  withNavBar: false,
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                );
+              },
+              child: Icon(Icons.chat)) : Container()
         ],
       ),
       // actions: [

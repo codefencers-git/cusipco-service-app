@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/main_screen/earnings/earning_model.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/earnings/earning_model.dart';
 
 class FutureBuildWidget extends StatelessWidget {
   FutureBuildWidget(

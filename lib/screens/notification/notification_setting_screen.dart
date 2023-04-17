@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
-import 'package:healu_doctor_app/widgets/appbar_widget.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
 import 'package:provider/provider.dart';
 
 class NotificationSettingScreen extends StatefulWidget {

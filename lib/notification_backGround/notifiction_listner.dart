@@ -1,9 +1,9 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/navigation_service.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
-import 'package:healu_doctor_app/widgets/notification_alert_widget1.dart';
+import 'package:cusipco_doctor_app/Global/navigation_service.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
+import 'package:cusipco_doctor_app/widgets/notification_alert_widget1.dart';
 
 class NotificationListner {
   initializeNotification() {

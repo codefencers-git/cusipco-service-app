@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/global_method.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/models/appointment_detail_model.dart';
-import 'package:healu_doctor_app/services/provider_service/appointment_details_service.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
-import 'package:healu_doctor_app/widgets/text_boxes/text_box_normal.dart';
+import 'package:cusipco_doctor_app/Global/global_method.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/models/appointment_detail_model.dart';
+import 'package:cusipco_doctor_app/services/provider_service/appointment_details_service.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/widgets/text_boxes/text_box_normal.dart';
 
 class AlertDialogForAddNotesMeeting extends StatefulWidget {
   AlertDialogForAddNotesMeeting(

@@ -1,10 +1,10 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
-import 'package:healu_doctor_app/services/provider_service/dash_board_provider.dart';
-import 'package:healu_doctor_app/widgets/button_widget/rounded_button_widget.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
+import 'package:cusipco_doctor_app/services/provider_service/dash_board_provider.dart';
+import 'package:cusipco_doctor_app/widgets/button_widget/rounded_button_widget.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';

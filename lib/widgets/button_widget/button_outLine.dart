@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
 
 class OutlineButtonWidget extends StatelessWidget {
   const OutlineButtonWidget(

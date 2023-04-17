@@ -2,26 +2,29 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:healu_doctor_app/Global/navigation_service.dart';
-import 'package:healu_doctor_app/Global/routes.dart';
-import 'package:healu_doctor_app/Global/themedata.dart';
-import 'package:healu_doctor_app/firebase_options.dart';
-import 'package:healu_doctor_app/notification_backGround/notification_service.dart';
-import 'package:healu_doctor_app/notification_backGround/notifiction_listner.dart';
-import 'package:healu_doctor_app/screens/main_screen/earnings/earning_service.dart';
-import 'package:healu_doctor_app/screens/main_screen/reviews/review_service.dart';
-import 'package:healu_doctor_app/services/main_navigaton_prowider_service.dart';
-import 'package:healu_doctor_app/services/provider_service/dash_board_provider.dart';
-import 'package:healu_doctor_app/services/provider_service/general_info_service.dart';
-import 'package:healu_doctor_app/services/provider_service/indexChangesService.dart';
-import 'package:healu_doctor_app/services/provider_service/user_preference_service.dart';
+import 'package:cusipco_doctor_app/Global/navigation_service.dart';
+import 'package:cusipco_doctor_app/Global/routes.dart';
+import 'package:cusipco_doctor_app/Global/themedata.dart';
+import 'package:cusipco_doctor_app/firebase_options.dart';
+import 'package:cusipco_doctor_app/notification_backGround/notification_service.dart';
+import 'package:cusipco_doctor_app/notification_backGround/notifiction_listner.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/earnings/earning_service.dart';
+import 'package:cusipco_doctor_app/screens/main_screen/reviews/review_service.dart';
+import 'package:cusipco_doctor_app/services/main_navigaton_prowider_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/dash_board_provider.dart';
+import 'package:cusipco_doctor_app/services/provider_service/general_info_service.dart';
+import 'package:cusipco_doctor_app/services/provider_service/indexChangesService.dart';
+import 'package:cusipco_doctor_app/services/provider_service/user_preference_service.dart';
 
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationListner().initializeNotification();
+
+
   await Firebase.initializeApp(
+    name: 'Cusipco',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -92,7 +95,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-          title: 'HealU Services',
+          title: 'Cusipco Services',
           debugShowCheckedModeBanner: false,
           theme: ThemeClass.themeData,
           routes: Routes.globalRoutes,
