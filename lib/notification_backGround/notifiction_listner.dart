@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/navigation_service.dart';
 import 'package:cusipco_doctor_app/screens/main_screen/home/appointment_details_screen.dart';
 import 'package:cusipco_doctor_app/widgets/notification_alert_widget1.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
+import '../screens/video/video_screen.dart';
+import '../widgets/video_call_notification_alert_widget.dart';
 
 class NotificationListner {
   initializeNotification() {
@@ -15,6 +19,17 @@ class NotificationListner {
               channelKey: 'call_channel',
               channelName: 'Calls Channel',
               channelDescription: 'Channel with call ringtone',
+              defaultColor: Color(0xFF9D50DD),
+              importance: NotificationImportance.Max,
+              ledColor: Colors.white,
+              channelShowBadge: true,
+              locked: true,
+              defaultRingtoneType: DefaultRingtoneType.Ringtone),
+          NotificationChannel(
+              channelGroupKey: 'category_tests',
+              channelKey: 'video_call_channel',
+              channelName: 'Video Calls Channel',
+              channelDescription: 'Video channel with call ringtone',
               defaultColor: Color(0xFF9D50DD),
               importance: NotificationImportance.Max,
               ledColor: Colors.white,
@@ -75,6 +90,44 @@ class NotificationListner {
             break;
         }
         return;
+      } else if (receivedAction.channelKey == 'video_call_channel') {
+        switch (receivedAction.buttonKeyPressed) {
+          case 'REJECT':
+            AwesomeNotifications().cancel(1);
+            break;
+
+          case 'ACCEPT':
+            AwesomeNotifications().cancel(1);
+            /*  pushNewScreen(context,
+                screen: VideoScreen(
+                  channelName: receivedAction.payload!['callRoom'].toString(),
+                  token: receivedAction.payload!['callToken'].toString(),
+                ));*/
+            Navigator.push(
+                navigationService.navigationKey.currentContext!,
+                MaterialPageRoute(
+                    builder: (context) => VideoScreen(
+                          channelName:
+                              receivedAction.payload!['callRoom'].toString(),
+                          token:
+                              receivedAction.payload!['callToken'].toString(),
+                        )));
+            break;
+
+          default:
+            _showAlertOrder(
+              isSound: "false",
+              id: receivedAction.payload!['id'].toString(),
+              title: receivedAction.title.toString(),
+            );
+
+            // var adsad = receivedAction.;
+            Future.delayed(Duration(seconds: 30), () {
+              AwesomeNotifications().cancel(1);
+            });
+            break;
+        }
+        return;
       }
     });
   }
@@ -115,11 +168,41 @@ makeListnerNotification() {
     if (message.data != null) {
       if (message.data['alert_type'] != null &&
           message.data['alert_type'] == "Call") {
-        _showAlertOrder(
-            isSound: "true",
-            id: message.data['type_id'],
-            title: message.data['title']);
+        if (message.data['call_token'] != null) {
+          _showVideoAlert(
+              isSound: "true",
+              callRoom: message.data['call_room'],
+              callToken: message.data['call_token'],
+              message: message.data['message'],
+              title: message.data['title']);
+        } else {
+          _showAlertOrder(
+              isSound: "true",
+              id: message.data['type_id'],
+              title: message.data['title']);
+        }
       }
     }
   });
+}
+
+_showVideoAlert({
+  required String isSound,
+  required String callRoom,
+  required String callToken,
+  required String message,
+  required String title,
+}) {
+  showDialog(
+    context: navigationService.navigationKey.currentContext!,
+    builder: (BuildContext context) {
+      return VideoCallNotificationAlertWidget(
+        isSound: isSound,
+        callRoom: callRoom,
+        callToken: callToken,
+        message: message,
+        title: title,
+      );
+    },
+  );
 }

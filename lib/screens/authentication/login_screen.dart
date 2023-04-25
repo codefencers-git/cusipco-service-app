@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/global_method.dart';
 import 'package:cusipco_doctor_app/Global/global_variable_for_show_messge.dart';
@@ -34,6 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isLoading = false;
   bool isFirstSubmit = true;
   bool _isObcs = true;
+
   _togglePassword() {
     setState(() {
       _isObcs = !_isObcs;
@@ -211,11 +213,14 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         isLoading = true;
       });
+      final fcmToken = await FirebaseMessaging.instance.getToken();
+
+      print("FB Token : $fcmToken");
 
       var mapData = Map<String, dynamic>();
       mapData['username'] = _emailController.text.toString().trim();
       mapData['password'] = _passwordController.text.toString().trim();
-      mapData['device_token'] = "0";
+      mapData['device_token'] = fcmToken;
       mapData['device_type'] = Platform.isAndroid ? "android" : "ios";
 
       try {

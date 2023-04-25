@@ -22,7 +22,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationListner().initializeNotification();
 
-
   await Firebase.initializeApp(
     name: 'Cusipco',
     options: DefaultFirebaseOptions.currentPlatform,
@@ -40,10 +39,21 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   if (message.data != null) {
     if (message.data['alert_type'] != null &&
         message.data['alert_type'] == "Call") {
-      createSimpleNotification(
-          id: message.data['type_id'],
+      if (message.data['call_token'] != null) {
+        createVideoCallNotification(
+          isSound: "true",
+          callRoom: message.data['call_room'],
+          callToken: message.data['call_token'],
+          message: message.data['message'],
           title: message.data['title'],
-          message: message.data['message']);
+          id: message.data['user_id'],
+        );
+      } else {
+        createSimpleNotification(
+            id: message.data['type_id'],
+            title: message.data['title'],
+            message: message.data['message']);
+      }
     }
   }
 }

@@ -56,6 +56,53 @@ Future<void> createSimpleNotification({
   });
 }
 
+Future<void> createVideoCallNotification({
+  required String id,
+  required String isSound,
+  required String callRoom,
+  required String callToken,
+  required String message,
+  required String title,
+}) async {
+  await AwesomeNotifications().createNotification(
+      content: NotificationContent(
+        id: 1,
+        channelKey: "video_call_channel",
+        title: title,
+        body: message,
+        payload: {
+          "id": id,
+          "isSound": isSound,
+          "callRoom": callRoom,
+          "callToken": callToken,
+          "message": message,
+          "title": title,
+        },
+        autoDismissible: false,
+        displayOnBackground: true,
+        displayOnForeground: true,
+        wakeUpScreen: true,
+        fullScreenIntent: true,
+        category: NotificationCategory.Call,
+      ),
+      actionButtons: [
+        NotificationActionButton(
+            key: 'ACCEPT',
+            label: 'Accept',
+            color: Colors.green.withOpacity(0.7),
+            autoDismissible: true),
+        NotificationActionButton(
+            key: 'REJECT',
+            label: 'Reject',
+            isDangerousOption: true,
+            autoDismissible: true),
+      ]);
+
+  Future.delayed(Duration(seconds: 30), () {
+    AwesomeNotifications().cancel(1);
+  });
+}
+
 Future<String> getPlatformVersion() async {
   if (Platform.isAndroid) {
     var androidInfo = await DeviceInfoPlugin().androidInfo;

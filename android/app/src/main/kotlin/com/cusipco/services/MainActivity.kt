@@ -1,4 +1,4 @@
-package com.cusipco.doctor_app
+package com.cusipco.services
 
 import io.flutter.embedding.android.FlutterActivity
 
