@@ -53,18 +53,20 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDnn0Ro1MMKNLLSgRReXc1TYyWUl8wUgCk',
     appId: '1:284271437843:android:35d71c268fce60a79b37e6',
     messagingSenderId: '284271437843',
-    projectId: 'healu-67006',
-    storageBucket: 'healu-67006.appspot.com',
+    projectId: 'cusipco-7a29c',
+    storageBucket: 'cusipco-7a29c.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCfx5f4fG-OnmCKlbOE26qGlovCfuWJZi8',
     appId: '1:284271437843:ios:672bbcd93891dbf19b37e6',
     messagingSenderId: '284271437843',
-    projectId: 'healu-67006',
-    storageBucket: 'healu-67006.appspot.com',
-    androidClientId: '284271437843-8gq5obvjc900gocsrk00mums4t5ji5dj.apps.googleusercontent.com',
-    iosClientId: '284271437843-suo5n0ctg9g5k9om4g4dcv7u057cud51.apps.googleusercontent.com',
-    iosBundleId: 'com.healu.healuServicesApp',
+    projectId: 'cusipco-7a29c',
+    storageBucket: 'cusipco-7a29c.appspot.com',
+    androidClientId:
+        '284271437843-8gq5obvjc900gocsrk00mums4t5ji5dj.apps.googleusercontent.com',
+    iosClientId:
+        '284271437843-suo5n0ctg9g5k9om4g4dcv7u057cud51.apps.googleusercontent.com',
+    iosBundleId: 'com.cusipco.services',
   );
 }
