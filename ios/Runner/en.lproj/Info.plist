@@ -34,12 +34,6 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 
-	<key>NSAppTransportSecurity</key>
-	<dict>
-    	<key>NSAllowsLocalNetworking</key>
-   	 <true/>
-	</dict>
-
 
 	<key>UIBackgroundModes</key>
 	<array>
