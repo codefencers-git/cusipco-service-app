@@ -1,17 +1,9 @@
 import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cusipco_doctor_app/api/firebase_api.dart';
 import 'package:cusipco_doctor_app/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/themedata.dart';
-import 'package:cusipco_doctor_app/services/main_navigaton_prowider_service.dart';
-import 'package:cusipco_doctor_app/services/provider_service/general_info_service.dart';
 import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../services/provider_service/user_preference_service.dart';
 
 class ChatDetailsScreen extends StatefulWidget {
@@ -19,9 +11,11 @@ class ChatDetailsScreen extends StatefulWidget {
   final String? chatPersonImage;
   final String? chatPersonName;
   final UserModel? userDetails;
+  final String? drname;
   final QueryDocumentSnapshot<Object?>? doc;
+
   ChatDetailsScreen(
-      {Key? key, this.chatPersonId, this.chatPersonImage, this.chatPersonName, this.userDetails, this.doc})
+      {Key? key, this.chatPersonId, this.chatPersonImage, this.chatPersonName, this.userDetails, this.doc, this.drname})
       : super(key: key);
 
   @override
@@ -51,20 +45,26 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                   isShowBack: true,
                   isShowRightIcon: true,
                   onbackPress: () {
-                    Provider.of<MainNavigationProwider>(context, listen: false)
-                        .chaneIndexOfNavbar(0);
+
+                    Navigator.pop(context);
+
+                    // Provider.of<MainNavigationProwider>(context, listen: false)
+                    //     .chaneIndexOfNavbar(0);
                   },
-                  title: widget.doc!["name"].toString(),
+                  title: widget.drname.toString(),
+                  // title: "suraj",
                 )),
             body: Column(
               children: [
                 Expanded(
                   child: StreamBuilder<QuerySnapshot>(
-                    stream: db
-                        .collection('bucket_$myUserId')
-                    .orderBy('sent_time', descending: true)
+                    // stream: db
+                    //     .collection('bucket_$myUserId')
+                    // .orderBy('sent_time', descending: true)
+                    //     .snapshots(),
 
-                        .snapshots(),
+                    stream: FirebaseFirestore.instance.collection('chatList').doc("bucket_${myUserId+widget.chatPersonId.toString()}").collection('chat').orderBy('sent_time', descending: true).snapshots(),
+
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) {
                         return Center(
@@ -72,6 +72,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                         );
                       } else {
                         return ListView(
+                          physics: BouncingScrollPhysics(),
                             reverse: true,
                             children: snapshot.data!.docs.map((doc) {
                               return Container(
@@ -118,8 +119,14 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                         ),
                         InkWell(
                             onTap: () {
-                              sendMessage(messageInputController.text,
-                                  widget.chatPersonId.toString(), myUserId, widget.chatPersonId.toString());
+                              sendMessage(
+                                  messageInputController.text,
+                                  widget.chatPersonId.toString(),
+                                  myUserId,
+                                  widget.chatPersonId.toString(),
+                                  userDetails.data!.profileImage.toString(),
+                                  userDetails.data!.name.toString(),
+                              );
                               messageInputController.clear();
                             },
                             child: Icon(
@@ -135,7 +142,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
   }
 }
 
-void sendMessage(String message, String userId, String myId, String receiverId) {
+void sendMessage(String message, String userId, String myId, String receiverId, dr_profileImage, dr_name) {
   String currentTimestamp = DateTime.now().toString();
   Map<String, dynamic> messageRow = {
     "sender": myId,
@@ -144,8 +151,21 @@ void sendMessage(String message, String userId, String myId, String receiverId) 
     "type": "sender",
     "message": message
   };
-  FirebaseFirestore.instance
-      .collection("bucket_$myId")
-      .doc(currentTimestamp)
-      .set(messageRow);
+
+  // FirebaseFirestore.instance
+  //     .collection("bucket_$myId")
+  //     .doc(currentTimestamp)
+  //     .set(messageRow);
+
+  FirebaseFirestore.instance.collection('chatList').doc("bucket_${myId+receiverId}").collection('chat')
+  .doc(currentTimestamp).set(messageRow);
+
+  FirebaseFirestore.instance.collection('chatList').doc("bucket_${myId+receiverId}").update({
+    "dr_profileimage" : dr_profileImage,
+    "dr_name": dr_name,
+    "dr_senderid" : myId,
+    "dr_receiverid" : receiverId,
+    "client_receiverid" : myId,
+    "client_senderid" : receiverId,
+  });
 }

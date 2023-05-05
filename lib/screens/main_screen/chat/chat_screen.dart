@@ -48,69 +48,78 @@ class _ChatScreenState extends State<ChatScreen> {
                 isShowBack: true,
                 isShowRightIcon: true,
                 onbackPress: () {
-                  Provider.of<MainNavigationProwider>(context, listen: false)
-                      .chaneIndexOfNavbar(0);
+
+                  Navigator.pop(context);
+
+                  // Provider.of<MainNavigationProwider>(context, listen: false)
+                  //     .chaneIndexOfNavbar(0);
                 },
                 title: "Chat with clients",
               )),
           body: StreamBuilder<QuerySnapshot>(
-            stream: db.collection('users').snapshots(),
+            stream: db.collection('chatList').where('dr_senderid', isEqualTo: myUserId).snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
-                return ListView(
-                    children: snapshot.data!.docs.map((doc) {
-                  print(doc.toString());
-                  return Card(
-                      child: InkWell(
-                        onTap: (){
-                          pushNewScreen(context, screen: ChatDetailsScreen(userDetails: userDetails, chatPersonId: doc["id"],doc: doc));
-                        },
-                        child: ListTile(
-                    title: Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(100)),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image:
-                                        NetworkImage("${doc["profileImage"]}"))),
-                            width: 50,
-                            height: 50,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "${doc["name"]}",
+
+                var snapshotdata = snapshot.data!.docs;
+                print("snapshotdata.length ${snapshotdata.length}");
+
+                return ListView.builder(
+                    itemCount: snapshotdata.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                          child: InkWell(
+                            onTap: (){
+
+                              pushNewScreen(context, screen: ChatDetailsScreen(userDetails: userDetails, chatPersonId: snapshotdata[index]['dr_receiverid'], drname: snapshotdata[index]['client_name']));
+
+                              },
+                            child: ListTile(
+                              title: Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.all(Radius.circular(100)),
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image:
+                                            NetworkImage("${snapshotdata[index]['client_profile']}"))),
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        snapshotdata[index]['client_name'],
+                                      ),
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Stack(
+                                      children: <Widget>[
+                                        new Icon(Icons.message),
+                                        new Positioned(  // draw a red marble
+                                          top: 0.0,
+                                          right: 0.0,
+                                          child: new Icon(Icons.brightness_1, size: 8.0,
+                                              color: Colors.redAccent),
+                                        )
+                                      ]
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          Spacer(),
-                          Stack(
-                              children: <Widget>[
-                                new Icon(Icons.message),
-                                new Positioned(  // draw a red marble
-                                  top: 0.0,
-                                  right: 0.0,
-                                  child: new Icon(Icons.brightness_1, size: 8.0,
-                                      color: Colors.redAccent),
-                                )
-                              ]
-                          ),
-                        ],
-                    ),
-                  ),
-                      ));
-                }).toList());
+                            ),
+                          ));
+                    },);
               }
             },
           ),

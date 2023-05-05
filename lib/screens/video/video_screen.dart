@@ -48,7 +48,7 @@ class _VideoScreenState extends State<VideoScreen> {
             preferredSize: Size.fromHeight(65.0),
             child: AppBarWithTextAndBackWidget(
               onbackPress: () {
-                client.release();
+                // client.release();
                 Navigator.pop(context);
                 Navigator.pop(context);
               },
