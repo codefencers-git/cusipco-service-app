@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
-import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
-import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:http/http.dart' as http;
 
 
@@ -34,8 +31,6 @@ class _CallingScreenState extends State<CallingScreen> {
   bool remoteUserJoined = false;
   bool _showStats = false;
   int? _remoteUid;
-  RtcStats? _stats;
-  late RtcEngine engine;
 
   // Timer for call (when 40 seconds pass then the user is not responding)
   Timer? callingTimer;
@@ -50,159 +45,6 @@ class _CallingScreenState extends State<CallingScreen> {
 
   bool userDeclinedCall = false;
 
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    userDeclinedCall = false;
-    body = Container();
-
-    // Initialize agora rtc engine
-    initRTC();
-  }
-
-  initRTC() async {
-    // Inititialize agora engine params
-    await initAgora();
-
-    if (widget.isCaller == true) {
-      await initCall();
-    } else {
-      // await joinCall(widget.channelName);
-    }
-  }
-
-  initAgora() async {
-    // Create engine with app id
-    engine = await RtcEngine.create(appId);
-
-    // Set the callbacks for the engine
-    engine!.setEventHandler(RtcEngineEventHandler(
-      joinChannelSuccess: (String channel, int uid, int elapsed) {
-        // This is called when current user joins channel
-        print('$uid successfully joined channel: $channel ');
-        setState(() {
-          _localUserJoined = true;
-        });
-      },
-      userJoined: (int uid, int elapsed) {
-        // This is called when the other user joins the channel
-        print('remote user $uid joined channel');
-        setState(() {
-          remoteUserJoined = true;
-          _remoteUid = uid;
-          body = Stack(
-            children: [
-              Container(
-                child: renderRemoteVideo(),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.3,
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.4,
-                    child: renderLocalPreview(),
-                  ),
-                ),
-              )
-            ],
-          );
-          callingTimer!.cancel();
-        });
-        // Other user joined call then start call duration counter
-        startCallTimerTimer();
-      },
-      userOffline: (int uid, UserOfflineReason reason) async {
-        // If the other user hangs up or disconnects
-        print('remote user $uid left channel');
-        setState(() {
-          _remoteUid = null;
-        });
-
-        // Leave channel as well and go back to dialing page
-        await engine!.leaveChannel();
-
-        Navigator.of(context).pop();
-      },
-      rtcStats: (stats) {
-        // TODO: show stats here if you want
-      },
-    ));
-  }
-
-  // This function is for initilizing call (caller)
-  initCall() async {
-    // Enable video in the agora rtc engine
-    await engine.enableVideo();
-    // Join the agora rtc channel
-    await engine.joinChannel(
-      widget.token,
-      widget.channelName!,
-      null,
-      0,
-    );
-
-    setState(() {
-      body = Center(
-        child: Text(
-          "Calling ${widget.drname} ... ",
-        ),
-      );
-    });
-
-    startTimerForCall();
-  }
-
-
-  // Render the widget for the remote user video
-  Widget renderRemoteVideo() {
-    if (_remoteUid != null) {
-      return RtcRemoteView.SurfaceView(
-        uid: _remoteUid!,
-        channelId: widget.channelName!,
-      );
-    } else {
-      return const Text(
-        'Please wait remote user join',
-        textAlign: TextAlign.center,
-      );
-    }
-  }
-
-  // Render the widget for the local user video
-  Widget renderLocalPreview() {
-    if (_localUserJoined) {
-      return const RtcLocalView.SurfaceView();
-    } else {
-      return const Text(
-        'Please join channel first',
-        textAlign: TextAlign.center,
-      );
-    }
-  }
-
-  // Start the countdown for ringing state
-  startCallTimerTimer() {
-    const oneSec = Duration(seconds: 1);
-    setState(() {
-      callTimeTimerStart = 0;
-    });
-    callTimeTimer = Timer.periodic(oneSec, (timer) {
-      setState(() {
-        callTimeTimerStart++;
-      });
-    });
-  }
 
   // Duration counter for the call
   startTimerForCall() {
@@ -325,8 +167,6 @@ class _CallingScreenState extends State<CallingScreen> {
                                 micMuted = !micMuted;
                               });
 
-                              await engine!
-                                  .muteLocalAudioStream(!micMuted);
                             },
                             child: micMuted
                                 ? const Icon(
@@ -360,12 +200,7 @@ class _CallingScreenState extends State<CallingScreen> {
                               }),
                             ),
                             onPressed: () async {
-                              // TODO: end call here
-                              try {
-                                await engine!.leaveChannel();
-                              } catch (ex) {
-                                print(ex.toString());
-                              }
+
 
                               Navigator.of(context).pop();
                             },
@@ -403,7 +238,7 @@ class _CallingScreenState extends State<CallingScreen> {
                                 camOn = !camOn;
                               });
 
-                              await engine!.muteLocalVideoStream(!camOn);
+
                             },
                             child: camOn
                                 ? const Icon(
@@ -430,11 +265,7 @@ class _CallingScreenState extends State<CallingScreen> {
             : FloatingActionButton(
           onPressed: () async {
             // TODO: end call here
-            try {
-              await engine!.leaveChannel();
-            } catch (ex) {
-              print(ex.toString());
-            }
+
 
             Navigator.of(context).pop();
           },

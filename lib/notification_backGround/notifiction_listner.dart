@@ -97,7 +97,8 @@ class NotificationListner {
             break;
 
           case 'ACCEPT':
-            AwesomeNotifications().cancel(1);
+            print("Accepteccd");
+
             /*  pushNewScreen(context,
                 screen: VideoScreen(
                   channelName: receivedAction.payload!['callRoom'].toString(),
@@ -109,9 +110,8 @@ class NotificationListner {
                     builder: (context) => VideoScreen(
                           channelName:
                               receivedAction.payload!['callRoom'].toString(),
-                          token:
-                              receivedAction.payload!['callToken'].toString(),
                         )));
+            AwesomeNotifications().cancel(1);
             break;
 
           default:
@@ -172,7 +172,6 @@ makeListnerNotification() {
           _showVideoAlert(
               isSound: "true",
               callRoom: message.data['call_room'],
-              callToken: message.data['call_token'],
               message: message.data['message'],
               title: message.data['title']);
         } else {
@@ -189,7 +188,6 @@ makeListnerNotification() {
 _showVideoAlert({
   required String isSound,
   required String callRoom,
-  required String callToken,
   required String message,
   required String title,
 }) {
@@ -199,7 +197,6 @@ _showVideoAlert({
       return VideoCallNotificationAlertWidget(
         isSound: isSound,
         callRoom: callRoom,
-        callToken: callToken,
         message: message,
         title: title,
       );

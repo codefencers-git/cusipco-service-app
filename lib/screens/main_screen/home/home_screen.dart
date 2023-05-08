@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
   late TabController _tabController;
   @override
   void initState() {
+
     _tabController = TabController(length: 2, vsync: this);
     _startStream();
     super.initState();
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   _startStream() {
     try {
-      NotificationListner().notificationStreamListner(context);
+      // NotificationListner().notificationStreamListner(context);
     } catch (e) {
       print("----dashboard ---$e");
     }
@@ -43,9 +44,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
-    AwesomeNotifications().createdSink.close();
-    AwesomeNotifications().displayedSink.close();
-    AwesomeNotifications().actionSink.close();
+    // AwesomeNotifications().createdSink.close();
+    // AwesomeNotifications().displayedSink.close();
+    // AwesomeNotifications().actionSink.close();
     super.dispose();
   }
 

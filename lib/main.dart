@@ -20,7 +20,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  NotificationListner().initializeNotification();
+  // NotificationListner().initializeNotification();
 
   await Firebase.initializeApp(
     name: 'Cusipco',
@@ -29,7 +29,7 @@ void main() async {
 
   runApp(const MyApp());
   configLoading();
-  makeListnerNotification();
+  // makeListnerNotification();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 }
 

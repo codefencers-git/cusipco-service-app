@@ -1,76 +1,54 @@
-import 'package:agora_uikit/agora_uikit.dart';
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../widgets/appbar_widget.dart';
-
-const String appId = "8ca89082cb3f4b1ba9342d0d9e1389de";
+import 'package:provider/provider.dart';
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class VideoScreen extends StatefulWidget {
-  VideoScreen({Key? key, required this.token, required this.channelName})
+  VideoScreen({Key? key, required this.channelName})
       : super(key: key);
 
-  String token, channelName;
+  String  channelName;
 
   @override
   State<VideoScreen> createState() => _VideoScreenState();
 }
 
-int uid = 0; // uid of the local user
-
 class _VideoScreenState extends State<VideoScreen> {
-  late final AgoraClient client;
-
   @override
-  void initState() {
+  void initState(){
     super.initState();
-    initAgora();
   }
-
-  void initAgora() async {
-    client = AgoraClient(
-      agoraConnectionData: AgoraConnectionData(
-        appId: appId,
-        channelName: widget.channelName,
-        tempToken: widget.token,
-        uid: uid,
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: CallPage(callID: widget.channelName.toString())
     );
-
-    await client.initialize();
   }
+}
+
+final String localUserID = Random().nextInt(10000).toString();
+
+class CallPage extends StatelessWidget {
+  const CallPage({  key, required this.callID});
+  final String callID;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(65.0),
-            child: AppBarWithTextAndBackWidget(
-              onbackPress: () {
-                // client.release();
-                Navigator.pop(context);
-                Navigator.pop(context);
-              },
-              title: "Video Call",
-            )),
-        body: SafeArea(
-          child: Stack(
-            children: [
-              AgoraVideoViewer(
-                client: client,
-                layoutType: Layout.floating,
-                enableHostControls: true, // Add this to enable host controls
-              ),
-              AgoraVideoButtons(
-                client: client,
-                onDisconnect: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
+    var appId = 794102158;
+    var appSign = "f2245167c805c2151a9014e9a2664cf0a4dfe397b8f16144d0386ed7dd5641fa";
+    return SafeArea(
+      child: ZegoUIKitPrebuiltCall(
+        appID: appId,
+        appSign: appSign,
+        userID: localUserID,
+        userName: "user_$localUserID",
+        callID: callID,
+        config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall()
+          ..onOnlySelfInRoom = (context) {
+            Navigator.of(context).pop();
+          },
       ),
     );
   }
