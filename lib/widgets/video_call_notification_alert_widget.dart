@@ -114,7 +114,7 @@ class _VideoCallNotificationAlertWidgetState
                             Navigator.pop(context);
                             pushNewScreen(context,
                                 screen: VideoScreen(
-                                  channelName: widget.callRoom,
+                                  roomId: widget.callRoom,
                                 ));
                           }),
                       SizedBox(

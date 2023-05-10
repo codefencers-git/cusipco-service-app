@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cusipco_doctor_app/screens/main_screen/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/themedata.dart';
@@ -6,6 +8,10 @@ import 'package:cusipco_doctor_app/screens/notification/notification_setting_scr
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 
+import '../screens/main_screen/chat/AgoraTokenModel.dart';
+import '../screens/video/video_screen.dart';
+import '../services/http_service.dart';
+
 class AppBarWithTextAndBackWidget extends StatelessWidget {
   const AppBarWithTextAndBackWidget(
       {Key? key,
@@ -13,6 +19,8 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
       this.isShowRightIcon = false,
       this.isShowBack = false,
       this.chatOption = false,
+        this.audiovideo = false,
+        this.userId  ,
         this.isClickOnRightIcon = true,
       required this.onbackPress})
       : super(key: key);
@@ -20,7 +28,9 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
   final bool isShowRightIcon;
   final bool isClickOnRightIcon;
   final String title;
+  final String? userId;
   final bool? chatOption;
+  final bool? audiovideo;
   final Function onbackPress;
 
   @override
@@ -102,6 +112,70 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
       //         )
       //       : SizedBox(),
       // ],
+
+        actions: [
+          audiovideo == true
+              ? Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: GestureDetector(
+                      onTap: () {
+                        getAgoraToken(  userId.toString(), "Audio", context: context).then((value) {
+                          pushNewScreen(context,
+                              screen: VideoScreen(
+                                  roomId: value!.data.call_room));
+                        });
+                      },
+                      child: Icon(
+                        Icons.call,
+                        color: Colors.white,
+                      ))),
+              Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: GestureDetector(
+                      onTap: () {
+
+                      },
+                      child: Icon(
+                        Icons.video_call,
+                        color: Colors.white,
+                      ))),
+            ],
+          )
+              : SizedBox()
+
+        ],
+
     );
+  }
+}
+
+
+Future<AgoraTokenModel?> getAgoraToken(String callToId, String type,
+    {required BuildContext context}) async {
+  try {
+
+    var url = "http://cusipco.codefencers.com/api/take-a-call";
+    // UserModel? model = await UserPrefService().getUserData();
+    // String phone = model.data!.phoneNumber.toString();
+
+    Map<dynamic, dynamic> data = {
+      'call_to': callToId,
+      'type': type,
+    };
+
+    var response =
+    await HttpService.httpPost(url, data );
+
+    if (response.statusCode == 200) {
+      AgoraTokenModel agoraTokenModel =
+      AgoraTokenModel.fromJson(jsonDecode(response.body));
+      print("AGORA ROOM : ${agoraTokenModel.data.call_room}");
+      return agoraTokenModel;
+    }
+  } catch (e) {
+    debugPrint(e.toString());
+  } finally {
   }
 }

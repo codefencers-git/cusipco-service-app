@@ -804,10 +804,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "3e58242edc02624f2c712e3f8bea88e0e341c4ae1abd3a6ff661318a3aefd829"
+      sha256: da97262be945a72270513700a92b39dd2f4a54dad55d061687e2e37a6390366a
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.26"
+    version: "2.0.25"
   path_provider_foundation:
     dependency: transitive
     description:
@@ -980,10 +980,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: "5d7b3bd0400bdd0c03e59a3d3d5314651141a145b58196cd9018b12a2adc0c1b"
+      sha256: "8304d8a1f7d21a429f91dee552792249362b68a331ac5c3c1caf370f658873f6"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.3"
+    version: "2.1.0"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -1305,10 +1305,10 @@ packages:
     dependency: "direct main"
     description:
       name: zego_uikit_prebuilt_call
-      sha256: "00e48aebcda40b08bd6f8e796c24c7bd3e587fe0117ebfc8a60545667fc838c6"
+      sha256: "8621893574f683c43a5bd561435339eab3cb8e6e68a0771b3ff50084c705a566"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.7"
+    version: "3.3.10"
   zego_zpns:
     dependency: transitive
     description:

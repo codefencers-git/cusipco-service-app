@@ -108,8 +108,9 @@ class NotificationListner {
                 navigationService.navigationKey.currentContext!,
                 MaterialPageRoute(
                     builder: (context) => VideoScreen(
-                          channelName:
+                          roomId:
                               receivedAction.payload!['callRoom'].toString(),
+                      type:  receivedAction.payload!['callType'].toString(),
                         )));
             AwesomeNotifications().cancel(1);
             break;

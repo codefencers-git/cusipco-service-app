@@ -29,11 +29,22 @@ void main() async {
 
   runApp(const MyApp());
   configLoading();
-  // makeListnerNotification();
+  makeListnerNotification();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 }
 
+
+
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+
+  await Firebase.initializeApp();
+
+  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+    alert: true, // Required to display a heads up notification
+    badge: true,
+    sound: true,
+  );
+
   print('----------andling a background message: ${message.messageId}');
 
   if (message.data != null) {

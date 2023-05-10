@@ -4,7 +4,9 @@ import 'package:cusipco_doctor_app/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/themedata.dart';
 import 'package:cusipco_doctor_app/widgets/appbar_widget.dart';
+import '../../../services/http_service.dart';
 import '../../../services/provider_service/user_preference_service.dart';
+import 'AgoraTokenModel.dart';
 
 class ChatDetailsScreen extends StatefulWidget {
   final String? chatPersonId;
@@ -42,12 +44,12 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
             appBar: PreferredSize(
                 preferredSize: Size.fromHeight(65.0),
                 child: AppBarWithTextAndBackWidget(
+                  audiovideo: true,
                   isShowBack: true,
                   isShowRightIcon: true,
+                  userId: widget.chatPersonId,
                   onbackPress: () {
-
                     Navigator.pop(context);
-
                     // Provider.of<MainNavigationProwider>(context, listen: false)
                     //     .chaneIndexOfNavbar(0);
                   },
@@ -169,3 +171,6 @@ void sendMessage(String message, String userId, String myId, String receiverId, 
     "client_senderid" : receiverId,
   });
 }
+
+
+
