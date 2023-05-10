@@ -61,6 +61,7 @@ Future<void> createVideoCallNotification({
   required String isSound,
   required String callRoom,
   required String callToken,
+  required String callType,
   required String message,
   required String title,
 }) async {
@@ -75,6 +76,7 @@ Future<void> createVideoCallNotification({
           "isSound": isSound,
           "callRoom": callRoom,
           "callToken": callToken,
+          "callType": callType,
           "message": message,
           "title": title,
         },

@@ -17,11 +17,13 @@ class VideoCallNotificationAlertWidget extends StatefulWidget {
   VideoCallNotificationAlertWidget(
       {Key? key,
       required this.isSound,
-      required this.callRoom,
+        required this.callRoom,
+        required this.callType,
       required this.message,
       required this.title})
       : super(key: key);
   String isSound;
+  String callType;
   String callRoom;
   String message;
   String title;
@@ -114,6 +116,7 @@ class _VideoCallNotificationAlertWidgetState
                             Navigator.pop(context);
                             pushNewScreen(context,
                                 screen: VideoScreen(
+                                  type: widget.callType,
                                   roomId: widget.callRoom,
                                 ));
                           }),

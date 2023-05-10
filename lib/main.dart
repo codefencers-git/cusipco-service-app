@@ -54,6 +54,7 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
         createVideoCallNotification(
           isSound: "true",
           callRoom: message.data['call_room'],
+          callType: message.data['call_type'],
           callToken: message.data['call_token'],
           message: message.data['message'],
           title: message.data['title'],
