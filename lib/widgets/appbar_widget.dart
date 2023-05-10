@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../screens/main_screen/chat/AgoraTokenModel.dart';
 import '../screens/video/video_screen.dart';
+import '../screens/video/video_service.dart';
 import '../services/http_service.dart';
 
 class AppBarWithTextAndBackWidget extends StatelessWidget {
@@ -77,42 +78,6 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
               child: Icon(Icons.chat)) : Container()
         ],
       ),
-      // actions: [
-      //   isShowRightIcon
-      //       ? InkWell(
-      //           splashFactory: NoSplash.splashFactory,
-      //           onTap: () {
-      //             if (isClickOnRightIcon) {
-      //               pushNewScreen(
-      //                 context,
-      //                 screen: NotificationSettingScreen(),
-      //                 withNavBar: false,
-      //                 pageTransitionAnimation:
-      //                     PageTransitionAnimation.cupertino,
-      //               );
-      //             }
-      //           },
-      //           child: Padding(
-      //             padding: const EdgeInsets.only(right: 0),
-      //             child: Stack(
-      //               children: [
-      //                 Align(
-      //                   child: Padding(
-      //                     padding: const EdgeInsets.only(right: 20),
-      //                     child: Image.asset(
-      //                       "assets/icons/notifications_none.png",
-      //                       height: 25,
-      //                       width: 25,
-      //                     ),
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         )
-      //       : SizedBox(),
-      // ],
-
         actions: [
           audiovideo == true
               ? Row(
@@ -124,6 +89,7 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
                         getAgoraToken(  userId.toString(), "Audio", context: context).then((value) {
                           pushNewScreen(context,
                               screen: VideoScreen(
+                                type: "Audio",
                                   roomId: value!.data.call_room));
                         });
                       },
@@ -135,7 +101,12 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
                   padding: EdgeInsets.only(right: 20),
                   child: GestureDetector(
                       onTap: () {
-
+                        getAgoraToken(  userId.toString(), "Video", context: context).then((value) {
+                          pushNewScreen(context,
+                              screen: VideoScreen(
+                                  type: "Video",
+                                  roomId: value!.data.call_room));
+                        });
                       },
                       child: Icon(
                         Icons.video_call,
@@ -148,34 +119,5 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
         ],
 
     );
-  }
-}
-
-
-Future<AgoraTokenModel?> getAgoraToken(String callToId, String type,
-    {required BuildContext context}) async {
-  try {
-
-    var url = "http://cusipco.codefencers.com/api/take-a-call";
-    // UserModel? model = await UserPrefService().getUserData();
-    // String phone = model.data!.phoneNumber.toString();
-
-    Map<dynamic, dynamic> data = {
-      'call_to': callToId,
-      'type': type,
-    };
-
-    var response =
-    await HttpService.httpPost(url, data );
-
-    if (response.statusCode == 200) {
-      AgoraTokenModel agoraTokenModel =
-      AgoraTokenModel.fromJson(jsonDecode(response.body));
-      print("AGORA ROOM : ${agoraTokenModel.data.call_room}");
-      return agoraTokenModel;
-    }
-  } catch (e) {
-    debugPrint(e.toString());
-  } finally {
   }
 }
