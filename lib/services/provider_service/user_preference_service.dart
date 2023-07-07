@@ -208,6 +208,7 @@ class UserPrefService with ChangeNotifier {
           UserModel data = UserModel.fromJson(res);
           setUserData(userModel: data);
           globleUserModel = data;
+          print("userIDD"+data.data!.id.toString());
           notifyListeners();
           showToast(GlobalVariableForShowMessage.profileUdated);
           return;

@@ -86,7 +86,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: SafeArea(
         child: Scaffold(
           body: Container(
-              color: ThemeClass.blueColor,
+              color: ThemeClass.whiteColor,
               height: height,
               width: width,
               child: Stack(
@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Container(
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/spash_back_imaeg.png'),
+                        image: AssetImage('assets/images/splash_bg1.png'),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -113,25 +113,25 @@ class _SplashScreenState extends State<SplashScreen> {
     return Column(
       children: [
         SizedBox(
-          height: height * 0.15,
+          height: height * 0.05,
         ),
         Container(
-          height: height * 0.15,
-          decoration: const BoxDecoration(
+          height: height * 0.25,
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/splash_header_icon.png'),
+              image: AssetImage('assets/images/splash_main_icon.png'),
               fit: BoxFit.contain,
             ),
           ),
         ),
         SizedBox(
-          height: height * 0.15,
+          height: height * 0.08,
         ),
         Container(
-          height: height * 0.45,
-          decoration: const BoxDecoration(
+          height: height * 0.30,
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/splash_bottom_icon.png'),
+              image: AssetImage('assets/images/splash_icon1.png'),
               fit: BoxFit.contain,
             ),
           ),

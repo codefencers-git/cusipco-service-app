@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../../Global/themedata.dart';
 
-class ButtonWidget extends StatelessWidget {
-  const ButtonWidget(
+class NormalButton extends StatelessWidget {
+  const NormalButton(
       {Key? key,
-      this.isLoading = false,
-      required this.title,
-      required this.color,
-      this.fontSize = 16,
-      this.radius = 30,
-      this.isdisable = false,
-      this.heightPadding = 12,
-      required this.callBack, this.width, this.icon,   this.fontsize})
+        this.isLoading = false,
+        required this.title,
+        required this.color,
+        this.fontSize = 16,
+        this.radius = 30,
+        this.isdisable = false,
+        this.heightPadding = 12,
+        required this.callBack, this.width, this.icon,   this.fontsize})
       : super(key: key);
   final bool isLoading;
   final bool isdisable;
@@ -35,9 +35,8 @@ class ButtonWidget extends StatelessWidget {
           gradient: LinearGradient(
             begin: FractionalOffset.topCenter,
             end: FractionalOffset.bottomCenter,
-            colors: [ 
-              ThemeClass.blueColor,
-              ThemeClass.blueColor3,
+            colors: [
+              color,color
             ],
           ),
         ),
@@ -92,14 +91,14 @@ class ButtonWidget extends StatelessWidget {
 class MinButton extends StatelessWidget {
   const MinButton(
       {Key? key,
-      this.isLoading = false,
-      required this.title,
-      required this.color,
-      this.fontSize = 16,
-      this.radius = 30,
-      this.isdisable = false,
-      this.heightPadding = 12,
-      required this.callBack})
+        this.isLoading = false,
+        required this.title,
+        required this.color,
+        this.fontSize = 16,
+        this.radius = 30,
+        this.isdisable = false,
+        this.heightPadding = 12,
+        required this.callBack})
       : super(key: key);
   final bool isLoading;
   final bool isdisable;
@@ -114,7 +113,7 @@ class MinButton extends StatelessWidget {
     return Center(
       child: MaterialButton(
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
         child: Padding(
           padding: EdgeInsets.symmetric(
             // horizontal: 50,

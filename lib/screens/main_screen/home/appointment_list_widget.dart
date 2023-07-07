@@ -142,7 +142,7 @@ class _AppointmentListWidgetState extends State<AppointmentListWidget> {
 
                   // "05th Dec 2021",
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 10,
                       fontWeight: FontWeight.w500)),
             ],
@@ -173,7 +173,7 @@ class _AppointmentListWidgetState extends State<AppointmentListWidget> {
                     ),
                     // "10:30 AM",
                     style: TextStyle(
-                        color: ThemeClass.blueColor,
+                        color: ThemeClass.blueColor3,
                         fontSize: 10,
                         fontWeight: FontWeight.w500)),
               ],
@@ -213,7 +213,7 @@ class _AppointmentListWidgetState extends State<AppointmentListWidget> {
                       fontWeight: FontWeight.w500)),
               Text(appotinment.phoneNumber.toString(),
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 10,
                       fontWeight: FontWeight.w400)),
             ],

@@ -98,6 +98,7 @@ class NotificationListner {
 
           case 'ACCEPT':
             print("Accepteccd");
+            print(receivedAction.payload);
 
             /*  pushNewScreen(context,
                 screen: VideoScreen(
@@ -110,7 +111,7 @@ class NotificationListner {
                     builder: (context) => VideoScreen(
                           roomId:
                               receivedAction.payload!['callRoom'].toString(),
-                      type:  "Audio",
+                      type:  receivedAction.payload!['alert_type'].toString(),
                         )));
             AwesomeNotifications().cancel(1);
             break;
@@ -166,23 +167,21 @@ makeListnerNotification() {
   });
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    if (message.data != null) {
-      if (message.data['alert_type'] != null &&
-          message.data['alert_type'] == "Call") {
-        if (message.data['call_token'] != null) {
-          _showVideoAlert(
-              callType: message.data['call_type'] ?? "Audio",
-              isSound: "true",
-              callRoom: message.data['call_room'],
-              message: message.data['message'],
-              title: message.data['title']);
-        } else {
-          _showAlertOrder(
-              isSound: "true",
-              id: message.data['type_id'],
-              title: message.data['title']);
-        }
+    if (message.data['alert_type'] != null ) {
+      if (message.data['token'] != null) {
+        _showVideoAlert(
+            callType: message.data['alert_type'] ?? "Audio",
+            isSound: "true",
+            callRoom: message.data['call_room'],
+            message: message.data['message'],
+            title: message.data['title']);
       }
+      // else {
+      //   _showAlertOrder(
+      //       isSound: "true",
+      //       id: message.data['type_id'] != "" ? message.data['type_id'] :"",
+      //       title: message.data['title']);
+      // }
     }
   });
 }

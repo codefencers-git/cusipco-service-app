@@ -10,8 +10,8 @@ class ThemeClass {
   static final Color skyblueColor1 = Color(0xFFF3FAFF);
   static final Color skyblueColor2 = Color(0xFFDCFFEF);
 
-  static final Color blueColor = Color(0xFF19627C);
-
+  static final Color blueColor = Color(0xFF36D1DC);
+  static final Color blueColor3 = Color(0xFF5B86E5);
   static final Color gredientBlueColor1 = Color(0xFF0B5874);
   static final Color gredientBlueColor2 = Color(0xFF166480);
   static final Color gredientBlueColor3 = Color(0xFF24728E);

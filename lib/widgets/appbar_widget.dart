@@ -38,7 +38,7 @@ class AppBarWithTextAndBackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: ThemeClass.blueColor,
+      backgroundColor: ThemeClass.blackColor,
       toolbarHeight: 70,
       title: Row(
         children: [

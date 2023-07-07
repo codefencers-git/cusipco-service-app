@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:cusipco_doctor_app/Global/navigation_service.dart';
 import 'package:cusipco_doctor_app/Global/routes.dart';
@@ -19,6 +20,10 @@ import 'package:cusipco_doctor_app/services/provider_service/user_preference_ser
 import 'package:provider/provider.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    // systemNavigationBarColor: Colors.blue, // navigation bar color
+    statusBarColor: Colors.black, // status bar color
+  ));
   WidgetsFlutterBinding.ensureInitialized();
   // NotificationListner().initializeNotification();
 
@@ -50,12 +55,12 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   if (message.data != null) {
     if (message.data['alert_type'] != null &&
         message.data['alert_type'] == "Call") {
-      if (message.data['call_token'] != null) {
+      if (message.data['token'] != null) {
         createVideoCallNotification(
           isSound: "true",
           callRoom: message.data['call_room'],
-          callType: message.data['call_type'],
-          callToken: message.data['call_token'],
+          callType: message.data['alert_type'],
+          callToken: message.data['token'],
           message: message.data['message'],
           title: message.data['title'],
           id: message.data['user_id'],

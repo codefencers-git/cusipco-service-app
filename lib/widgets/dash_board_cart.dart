@@ -21,8 +21,17 @@ class DashBoardCArd extends StatelessWidget {
     // final TextStyle textStyle = Theme.of(context).textTheme.display1;
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: ThemeClass.blueColor),
-      child: InkWell(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        gradient: LinearGradient(
+          begin: FractionalOffset.topCenter,
+          end: FractionalOffset.bottomCenter,
+          colors: [
+            ThemeClass.blueColor.withOpacity(0.5),
+            ThemeClass.blueColor3,
+          ],
+        ),
+      ),
+      child:  InkWell(
         onTap: () {
           pushNewScreen(
             context,

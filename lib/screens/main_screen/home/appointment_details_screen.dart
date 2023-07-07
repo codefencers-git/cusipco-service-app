@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cusipco_doctor_app/widgets/button_widget/normal_button.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:cusipco_doctor_app/Global/global_method.dart';
@@ -515,7 +516,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
               ),
               Text(value,
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 12,
                       fontWeight: FontWeight.w500)),
             ],
@@ -539,7 +540,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
                 ),
                 Text(value1,
                     style: TextStyle(
-                        color: ThemeClass.blueColor,
+                        color: ThemeClass.blueColor3,
                         fontSize: 12,
                         fontWeight: FontWeight.w500)),
               ],
@@ -668,7 +669,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
                       fontWeight: FontWeight.w500)),
               Text(getDateFormated(appointmentDetails!.date.toString()),
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 12,
                       fontWeight: FontWeight.w500)),
             ],
@@ -695,7 +696,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
                         fontWeight: FontWeight.w500)),
                 Text(time24to12Format(appointmentDetails.time.toString()),
                     style: TextStyle(
-                        color: ThemeClass.blueColor,
+                        color: ThemeClass.blueColor3,
                         fontSize: 12,
                         fontWeight: FontWeight.w500)),
               ],
@@ -737,7 +738,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
               ),
               Text(appointmentDetails.phoneNumber.toString(),
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 10,
                       fontWeight: FontWeight.w400)),
             ],
@@ -751,7 +752,7 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
           child: appointmentDetails.status == "New"
               ? Column(
                   children: [
-                    ButtonWidget(
+                    NormalButton(
                         title: "Accept",
                         color: ThemeClass.greenColor,
                         fontSize: 12,
@@ -782,7 +783,8 @@ class _AppointmentDetailsScreenState extends State<AppointmentDetailsScreen> {
                           // AlertDialogForOTPVafication(
                           //     appointmentDetails: appointmentDetails);
                         }),
-                    ButtonWidget(
+                    Container(height: 10,),
+                    NormalButton(
                         title: "Decline",
                         color: ThemeClass.redColor,
                         fontSize: 12,

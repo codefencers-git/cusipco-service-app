@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
-                  color: ThemeClass.blueColor),
+                  color: ThemeClass.blueColor3),
             ),
             const SizedBox(
               height: 20,
@@ -180,11 +180,12 @@ class _LoginScreenState extends State<LoginScreen> {
         Transform.translate(
           offset: const Offset(0.0, -40),
           child: Container(
+            width: MediaQuery.of(context).size.width,
             height: height * 0.4,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/login_top_background.png"),
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -192,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding: EdgeInsets.only(top: height * 0.07),
+            padding: EdgeInsets.only(top: height * 0.06),
             child: Container(
               height: height * 0.15,
               decoration: const BoxDecoration(

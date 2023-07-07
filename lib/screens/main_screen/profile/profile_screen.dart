@@ -261,7 +261,7 @@ class _profileScreenState extends State<profileScreen> {
                                   backColor: ThemeClass.whiteDarkColor,
                                   hinttext: "Full Name",
                                   controllers: _nameController,
-                                  icon: "assets/icons/user_icon.png",
+                                  icon: "assets/icons/my_account.png",
                                   validator: (value) {
                                     if (value!.isEmpty) {
                                       return GlobalVariableForShowMessage
@@ -276,7 +276,7 @@ class _profileScreenState extends State<profileScreen> {
                                   backColor: ThemeClass.whiteDarkColor,
                                   controllers: _emailController,
                                   isReadOnly: true,
-                                  icon: "assets/icons/email_icon.png",
+                                  icon: "assets/icons/mail.png",
                                   validator: (value) {
                                     if (value!.isEmpty) {
                                       return GlobalVariableForShowMessage
@@ -288,6 +288,7 @@ class _profileScreenState extends State<profileScreen> {
                                       return GlobalVariableForShowMessage
                                           .pleasEenterVaildEmail;
                                     }
+                                    return null;
                                   },
                                 ),
                                 isDoctor
@@ -298,7 +299,7 @@ class _profileScreenState extends State<profileScreen> {
                                         backColor: ThemeClass.whiteDarkColor,
                                         hinttext: "Designation",
                                         controllers: _designationController,
-                                        icon: "assets/icons/star_user.png",
+                                        icon: "assets/icons/designation.png",
                                         validator: (value) {
                                           if (value!.isEmpty) {
                                             return GlobalVariableForShowMessage
@@ -317,7 +318,7 @@ class _profileScreenState extends State<profileScreen> {
                                         hinttext: "Consultation Charges",
                                         controllers:
                                             _consultationChargeController,
-                                        icon: "assets/icons/rupee_icon.png",
+                                        icon: "assets/icons/rupee.png",
                                         isNumber: true,
                                         validator: (value) {
                                           if (value!.isEmpty) {
@@ -333,7 +334,7 @@ class _profileScreenState extends State<profileScreen> {
                                   backColor: ThemeClass.whiteDarkColor,
                                   hinttext: "Phone Number",
                                   controllers: _phoneController,
-                                  icon: "assets/icons/telephone_icon.png",
+                                  icon: "assets/icons/calling.png",
                                   isNumber: true,
                                   isReadOnly: true,
                                   validator: (value) {

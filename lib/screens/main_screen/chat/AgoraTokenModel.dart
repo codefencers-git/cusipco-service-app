@@ -41,19 +41,19 @@ class AgoraTokenModel {
 class Data {
   Data({
     required this.call_room,
-    required this.call_type,
+    required this.alert_type,
   });
 
   String call_room;
-  String call_type;
+  String alert_type;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
     call_room: json["call_room"],
-    call_type: json["call_type"],
+    alert_type: json["alert_type"],
   );
 
   Map<String, dynamic> toJson() => {
     "call_room": call_room,
-    "call_type": call_type,
+    "alert_type": alert_type,
   };
 }

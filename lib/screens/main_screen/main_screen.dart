@@ -80,7 +80,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                     profileScreen(),
                   ],
                   items: _navBarsItems(),
-                  backgroundColor: ThemeClass.blueColor,
+                  backgroundColor: ThemeClass.blackColor,
                   padding: const NavBarPadding.only(left: 0, right: 0),
                   stateManagement: false,
                   hideNavigationBarWhenKeyboardShows: true,

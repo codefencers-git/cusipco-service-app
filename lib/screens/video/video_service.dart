@@ -24,7 +24,7 @@ Future<AgoraTokenModel?> getAgoraToken(String callToId, String type,
     if (response.statusCode == 200) {
       AgoraTokenModel agoraTokenModel =
       AgoraTokenModel.fromJson(jsonDecode(response.body));
-      print("AGORA ROOM : ${agoraTokenModel.data.call_type}");
+      print("AGORA ROOM : ${agoraTokenModel.data.alert_type}");
       return agoraTokenModel;
     }
   } catch (e) {

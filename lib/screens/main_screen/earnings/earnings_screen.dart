@@ -244,12 +244,12 @@ Container _buildTopContainer(String balance) {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 65,
-            width: 65,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/walletIcon.png"),
-                fit: BoxFit.fitHeight,
+                image: AssetImage("assets/icons/earnings.png"),
+                fit: BoxFit.contain,
               ),
             ),
           ),

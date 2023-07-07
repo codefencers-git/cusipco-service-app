@@ -37,12 +37,14 @@ class TextFiledWidget extends StatefulWidget {
   final Function(String)? onChange;
   final Color? backColor;
   final bool isShowEnableBorder;
+
   @override
   State<TextFiledWidget> createState() => _TextFiledWidgetState();
 }
 
 class _TextFiledWidgetState extends State<TextFiledWidget> {
   double padding = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -105,7 +107,7 @@ class _TextFiledWidgetState extends State<TextFiledWidget> {
                 }
               },
               child: Padding(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: 26),
                 child: Container(
                   height: 5,
                   width: 5,

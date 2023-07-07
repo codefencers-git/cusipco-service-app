@@ -259,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen>
                       fontWeight: FontWeight.w500)),
               Text(getDateFormated(appointment.date.toString()),
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 10,
                       fontWeight: FontWeight.w500)),
             ],
@@ -284,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen>
                       fontWeight: FontWeight.w500)),
               Text(time24to12Format(appointment.time.toString()),
                   style: TextStyle(
-                      color: ThemeClass.blueColor,
+                      color: ThemeClass.blueColor3,
                       fontSize: 10,
                       fontWeight: FontWeight.w500)),
             ],
@@ -380,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen>
             "View All",
             style: TextStyle(
                 fontSize: 12,
-                color: ThemeClass.blueColor,
+                color: ThemeClass.blueColor3,
                 fontWeight: FontWeight.w500),
           ),
         )
@@ -392,8 +392,16 @@ class _HomeScreenState extends State<HomeScreen>
     return Container(
         height: 84,
         decoration: BoxDecoration(
-            color: ThemeClass.blueColorlight,
-            borderRadius: const BorderRadius.all(Radius.circular(15))),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          gradient: LinearGradient(
+            begin: FractionalOffset.topCenter,
+            end: FractionalOffset.bottomCenter,
+            colors: [
+              ThemeClass.blueColor,
+              ThemeClass.blueColor3,
+            ],
+          ),
+        ),
         child: Row(
           children: [
             Expanded(

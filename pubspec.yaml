@@ -67,6 +67,9 @@ dependencies:
   overlay_support: ^2.0.1
   zego_uikit_prebuilt_call: ^3.3.10
 
+dependency_overrides:
+  firebase_core_platform_interface: 4.5.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
